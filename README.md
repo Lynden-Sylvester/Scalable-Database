@@ -112,6 +112,7 @@ def request_processor():
         # Send reply back to client
         socket.send_json({"result": result})
 
+# Call this function to start receiving confirmation of database operations
 request_processor()
 ```
 
