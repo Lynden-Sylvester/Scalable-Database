@@ -119,3 +119,15 @@ request_processor()
 This function sets up a database and listens for messages requesting database operations be performed, and upon receiving a request, identifies which database operation to perform and sends back confirmation of the result of the request as well as printing out the request in console.
 
 ## UML Sequence Diagram
+
+
+sequenceDiagram
+```
+    participant Client Applicantion
+    participant Scalable Database Microservice
+    Client Application->>Scalable Database Microservice: Hello
+    loop TestCheck
+        Scalable Database Microservice->>Scalable Database Microservice: this
+    end
+
+```
