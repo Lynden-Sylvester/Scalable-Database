@@ -5,7 +5,6 @@
 #
 
 import zmq
-import json
 
 def database_request(username, password, actionType, fileName, data):
     context = zmq.Context()
