@@ -119,15 +119,24 @@ request_processor()
 This function sets up a database and listens for messages requesting database operations be performed, and upon receiving a request, identifies which database operation to perform and sends back confirmation of the result of the request as well as printing out the request in console.
 
 ## UML Sequence Diagram
-
-
+Here's a UML sequence diagram showing the interaction between the Client Application and the Scalable Database Microservice:
+```mermaid
 sequenceDiagram
-```
-    participant Client Applicantion
-    participant Scalable Database Microservice
-    Client Application->>Scalable Database Microservice: Hello
-    loop TestCheck
-        Scalable Database Microservice->>Scalable Database Microservice: this
-    end
 
+    Client Application->>Scalable Database Microservice: Send Database Request (REQ)
+    Note over Scalable Database Microservice: Store Request
+    Scalable Database Microservice-->>Client Application: (No immediate response)
+    Note over Scalable Database Microservice: Check if the action type is a valid operation
+    Scalable Database Microservice->>Client Application: Send confirmation of database operation execution (REP)
 ```
+This diagram details the following sequence:
+1. The client application sends a database request to the microservice.
+2. The microservice stores the contents of the request.
+3. The microservice checks if the action parameter was passed a valid input.
+4. The microservice sends confirmation back to the client.
+
+## Setup & Execution
+1. Ensure you have Python3.x installed
+2. Install required libraries: `python3 -m pip install pyzmq`
+3. Run the microservice: `python3 scalable_database_microservice.py`
+4. In your application, use the provided code snippets to send database requests and recieve confirmation of their execution.
