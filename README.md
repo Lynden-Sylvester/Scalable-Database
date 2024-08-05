@@ -1,6 +1,6 @@
 # Scalable-Database
 This microservice provides a simple way to save information to a database without having to build your own database schema from scratch.
-## Communcication Contract
+## Communication Contract
 ### How to Programmatically REQUEST Data
 To request a database operation reuest to be sent, you need to send a JSON message to the microservice using ZeroMQ (ZMQ). Here are the steps:
 
